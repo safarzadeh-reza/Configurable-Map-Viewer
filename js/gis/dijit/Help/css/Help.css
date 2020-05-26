@@ -1,0 +1,21 @@
+.helpDijit .listdbootstrapFix {
+    padding: 0 25 0 0px;
+}
+
+.helpDijit .helpContainer {
+	padding: 0;
+}
+
+.floatingWidget .helpDijit .helpContainer {
+	padding: 5px;
+}
+
+.helpDijit .helpNode {
+    height:280px;
+    width: 100%;
+}
+
+.helpDijit .helpTabContainer {
+	height: 100%;
+    width: 100%;
+}

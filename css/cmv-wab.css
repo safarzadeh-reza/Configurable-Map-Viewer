@@ -1,0 +1,74 @@
+/* optional customizations for jimu and WAB widgets in cmv */
+.cmv .jimu-btn {
+    font-family: Tahoma;
+    min-width: 50px;
+    background-color: #F0F0F0;
+    color: #000;
+    border-color: #BBB;
+    padding: 6px;
+    line-height: 100%;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.cmv .jimu-btn.jimu-state-disabled {
+    background-color: #F0F0F0;
+    color: #9e9e9e;
+}
+.cmv .jimu-draw-box .draw-items .draw-item {
+    margin: 3px;
+}
+
+.cmv .jimu-symbol-chooser .line-symbol-section .icon-tables,
+.cmv .jimu-symbol-chooser .fill-symbol-section .icon-tables {
+    display: none;
+}
+
+.cmv .jimu-widget-measure .jimu-color-picker {
+    width: 36px !important;
+}
+
+.cmv .jimu-widget-measure .dijitNumberTextBox {
+    width: 70px !important;
+}
+
+.cmv .jimu-widget-bookmark {
+    min-height: 300px;
+}
+
+.cmv .jimu-widget-edit {
+    min-height: 200px;
+}
+
+.cmv .jimu-widget-edit .esriDrawingToolbar {
+    min-height: 25px;
+}
+
+.cmv .jimu-widget-mylocation,
+.cmv .jimu-widget-homebutton {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-width: 0;
+    margin-bottom: 10px;
+}
+
+.cmv .jimu-widget-mylocation:hover,
+.cmv .jimu-widget-homebutton:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cmv .jimu-widget-mylocation .place-holder,
+.cmv .jimu-widget-homebutton .HomeButton .home,
+.cmv .jimu-widget-homebutton .HomeButton .home:hover {
+    background-color: transparent;
+    border-width: 0;
+    color: rgba(255, 255, 255, 0.8);
+    height: 30px;
+}
+
+.cmv .jimu-single-filter-parameter .dijit-form-FilteringSelect {
+    height: 24px;
+}
+
+.cmv .jimu-single-filter-parameter .dijit-form-FilteringSelect > div.dijitArrowButton.dijitDownArrowButton {
+    padding: 2px 0;
+}

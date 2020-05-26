@@ -1,0 +1,62 @@
+<div class="gis_WeightedSumDijit">
+	<div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="gis_RendererDijitContainerNode" class="gis_RendererDijitContentPane">
+
+		<div class="contDiv">
+			<label>
+				<b>${i18n.selectQuery}</b>
+			</label>
+			<br/>
+			<input data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedLayer',autoComplete:true,required:true,missingMessage:'${i18n.requiredError}',invalidMessage:'${i18n.requiredError}',searchAttr:'name',maxHeight:250,'class':'querySelect'"
+			 data-dojo-attach-point="querySelectType" data-dojo-attach-event="onChange:_onCityChange">
+
+		</div>
+		<label>
+			<p>
+				<b>تنظیم شفافیت :</b>
+			</p>
+		</label>
+		<input data-dojo-attach-point="opacityControl" id="opacityControl" name="opacityControl" data-dojo-type="dijit/form/HorizontalSlider"
+		 data-dojo-props="maximum:1, minimum:0, value:0.5, intermediateChanges: true," />
+
+		<ol data-dojo-type="dijit/form/HorizontalRuleLabels" container="topDecoration" style="right:10px; width:90% ; color:gray;">
+			<li>0%</li>
+			<li>50%</li>
+			<li>100%</li>
+		</ol>
+
+		<div data-dojo-attach-point="layerDefinition">
+			<br>
+			<label>
+				<p>
+					<b>وزن لایه ها :</b>
+				</p>
+			</label>
+			<br>
+			<input type="checkbox" data-dojo-type="dijit/form/CheckBox" data-dojo-attach-point="allLayersCheckBox" data-dojo-props="iconClass:'fa fa-cog fa-fw','class':'allLayersCheckBox', checked: false"
+			 data-dojo-attach-event="onChange:_onAllLayersCheckBoxChange" />
+			<span>فعال/غیرفعال سازی تمام لایه ها</span>
+			<br>
+
+			<br>
+			<div id="checkboxContainer" data-dojo-attach-point="checkboxContainer">
+			</div>
+		</div>
+
+		<br>
+		<div id="waitingStatusContainer" data-dojo-attach-point="waitingStatusContainer" class=waitingStatusContainer>
+			<!-- <i class="fa fa-spinner fa-spin fa-1x fa-fw"></i> -->
+			<div id="waitingStatus" data-dojo-attach-point="waitingStatus">
+			</div>
+		</div>
+		<br>
+
+
+		<div align="center" class="contDiv">
+			<button data-dojo-attach-point="setRendererButton" data-dojo-props="iconClass:'fa fa-cog fa-fw'" data-dojo-type="dijit/form/Button"
+			 data-dojo-attach-event="onClick:operateWeightedSum">${i18n.buttonApply}</button>
+			<button data-dojo-attach-point="initRendererButton" data-dojo-props="iconClass:'fa fa-history fa-fw','class':'clearButton actionBarButton'"
+			 data-dojo-type="dijit/form/Button" data-dojo-attach-event="onClick:_onDefaultModeClick">${i18n.buttonReset}</button>
+		</div>
+
+	</div>
+</div>
