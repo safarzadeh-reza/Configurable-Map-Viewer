@@ -9,10 +9,10 @@ define({
     weightedSumLayers: [
 
         {
-            id: 3,
+            id: 2,
             name: "همدان",
             enName:"Hamedan",
-            path: "C:/ARCGISSERVERFILES/Kernels/Hamedan/Hamedan_kernels.gdb",
+            path: "http://192.168.100.96:8080/Kernels/Hamedan/Hamedan_kernels.gdb",
             layerIds: [14, 29, 6, 23, 16, 10, 4, 39, 19, 26, 13, 5, 25, 2, 22, 43, 18, 28, 20, 37, 42, 41, 30, 12, 9, 17, 15, 31, 35, 38, 36, 40, 33, 8, 32, 27, 1, 24, 34, 11, 21, 7, 0, 3],
             layerEnNames: ["Hamedan_lodging", "Hamedan_Clinics_Pharmacy", "Hamedan_car_repair", "Hamedan_stadium", "Hamedan_taxi_stand", "Hamedan_Parking", "Hamedan_Religious", "Hamedan_car_dealer", "Hamedan_car_wash",
                 "Hamedan_embassy", "Hamedan_fire_station", "Hamedan_museum", "Hamedan_gym", "Hamedan_Parks", "Hamedan_local_government_office", "Hamedan_movie_theater", "Hamedan_bus_station", "Hamedan_supermarket", "Hamedan_courthouse",
@@ -26,10 +26,10 @@ define({
                 '100', '120', '150', '300', '200', '250', '100', '100', '100', '100', '500', '100', '200', '150', '300', '250', '100', '200', '350', '250', '150', '30', '30'],
         },
         {
-            id: 4,
+            id: 2,
             name: "اهواز",
             enName:"Ahwaz",
-            path: "C:/ARCGISSERVERFILES/Kernels/Ahwaz/Ahwaz_kernels.gdb",
+            path: "http://192.168.100.96:8080/Kernels/Ahwaz/Ahwaz_kernels.gdb",
             layerIds: [24, 28, 9, 41, 21, 44, 29, 23, 17, 32, 30, 4, 12, 40, 5, 45, 10, 47, 6, 27, 37, 25, 46, 35, 39, 8, 11, 15, 43, 0, 19, 16, 42, 3, 2, 31, 26, 33, 13, 34, 38, 22, 1, 14, 7, 20, 18, 36],
             layerEnNames: ['Ahwaz_amusement_park', 'Ahwaz_shopping_mall', 'Ahwaz_furniture_store', 'Ahwaz_Stores', 'Ahwaz_hospital', 'Ahwaz_police', 'Ahwaz_courthouse', 'Ahwaz_bakery', 'Ahwaz_gym', 'Ahwaz_storage',
                 'Ahwaz_gas_station', 'Ahwaz_embassy', 'Ahwaz_Parks', 'Ahwaz_Cafe', 'Ahwaz_museum', 'Ahwaz_supermarket', 'Ahwaz_city_hall', 'Ahwaz_cemetery', 'Ahwaz_lodging', 'Ahwaz_jewelry_store', 'Ahwaz_car_dealer',
@@ -43,10 +43,10 @@ define({
                 '200', '150', '100', '200', '100', '100', '500', '150', '250', '150', '200', '100', '150', '400', '200', '150', '100', '250', '100', '750', '100', '100', '100', '30', '30'],
         },
         {
-            id: 5,
+            id: 2,
             name: "شیراز",
             enName:"Shiraz",
-            path: "C:/ARCGISSERVERFILES/Kernels/Shiraz/Shiraz_kernels.gdb",
+            path: "http://192.168.100.96:8080/Kernels/Shiraz/Shiraz_kernels.gdb",
             layerIds: [30, 24, 2, 41, 7, 20, 44, 45, 42, 14, 38, 23, 46, 26, 0, 34, 35, 12, 22, 47, 17, 19, 27, 36, 28, 48, 4, 11, 43, 32, 5, 15, 9, 6, 21, 16, 18, 25, 13, 1, 29, 3, 40, 37, 33, 10, 8, 31, 39,
             ],
             layerEnNames: ["Shiraz_park", "Shiraz_cafe", "Shiraz_religious", "Shiraz_clinics", "Shiraz_restaurant", "Shiraz_amusement_park", "Shiraz_stores", "Shiraz_bus_station", "Shiraz_car_dealer", "Shiraz_airport",

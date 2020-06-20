@@ -26,9 +26,9 @@
 			<br/>
 			<select data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedType',autoComplete:true,required:true,missingMessage:'${i18n.requiredError}',invalidMessage:'${i18n.requiredError}','class':'querySelect'"
 			 data-dojo-attach-point="querySelectType" data-dojo-attach-event="onChange:_onQueryTypeChange">
-				<option value="color">نمایش با رنگ</option>
-				<option value="size">نمایش با اندازه</option>
-				<option value="both">نمایش با اندازه و رنگ</option>
+				<option value="color">${i18n.Labels.options.displayByColor}</option>
+				<option value="size">${i18n.Labels.options.displayBySize}</option>
+				<option value="both">${i18n.Labels.options.displayByColorAndSize}</option>
 			</select>
 		</div>
 
@@ -40,11 +40,11 @@
 			<!-- <select data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedMethod',autoComplete:true,required:true,missingMessage:'${i18n.requiredError}',invalidMessage:'${i18n.requiredError}',searchAttr:'value','class':'querySelect'" data-dojo-attach-point="querySelectMethod" data-dojo-attach-event="onChange:_onQuerySelectMethod"> -->
 			<select data-dojo-type="dijit/form/FilteringSelect" data-dojo-props="name:'renderedMethod',autoComplete:true,required:true,missingMessage:'${i18n.requiredError}',invalidMessage:'${i18n.requiredError}','class':'querySelect'"
 			 data-dojo-attach-point="querySelectMethod" data-dojo-attach-event="onChange:_onQuerySelectMethod">
-				<option value="natural-breaks">طبقه بندی به روش "Natural Breaks"</option>
-				<option value="equal-interval">طبقه بندی به روش "Equal Interval"</option>
-				<option value="quantile">طبقه بندی به روش "Quantile"</option>
-				<option value="standard-deviation">طبقه بندی به روش "Standard Deviation"</option>
-				<option value="geometrical-interval">طبقه بندی به روش "Geometrical Interval"</option>
+				<option value="natural-breaks">${i18n.Labels.options.NaturalBreaks}</option>
+				<option value="equal-interval">${i18n.Labels.options.EqualInterval}</option>
+				<option value="quantile">${i18n.Labels.options.Quantile}</option>
+				<option value="standard-deviation">${i18n.Labels.options.StandardDeviation}</option>
+				<option value="geometrical-interval">${i18n.Labels.options.GeometricalInterval}</option>
 			</select>
 		</div>
 
@@ -108,7 +108,7 @@
 
 		<label>
 			<p>
-				<b>تنظیم شفافیت :</b>
+				<b>${i18n.trancparency}</b>
 			</p>
 		</label>
 		<input data-dojo-attach-point="opacityControlBtn" id="opacityControlBtn" name="opacityControlBtn" data-dojo-type="dijit/form/HorizontalSlider"

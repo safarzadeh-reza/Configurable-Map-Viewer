@@ -79,7 +79,7 @@ define([
         'jimu/utils',
         'dojo/sniff',
         'dojo/text!./Measure/Widget.html',
-        'dojo/i18n!./Measure/nls/strings',
+        'dojo/i18n!./Measure/nls/strings-en',
         'xstyle/css!./Measure/css/style.css'
     ],
     function (declare, _WidgetsInTemplateMixin, BaseWidget, _TemplatedMixin, GraphicsLayer, Edit, Graphic, Extent, Point,

@@ -15,9 +15,20 @@ define({
 		legendThematicPart2: ' - '  ,     
 		fromColor:'شروع طیف رنگ',
 		toColor:'پایان طیف رنگ',
+		trancparency:'تنظیم شفافیت :',
 		Labels: {
             // used for "Spatial Filters"
-            spatialFilters: {
+            options: {
+				displayByColor: 'نمایش با رنگ',
+                displayBySize: 'نمایش با اندازه',
+                displayByColorAndSize: 'نمایش با اندازه و رنگ',
+                NaturalBreaks: 'طبقه بندی به روش "Natural Breaks',
+                EqualInterval: 'طبقه بندی به روش "Equal Interval"',
+                Quantile: 'طبقه بندی به روش "Quantile"',
+				StandardDeviation: 'طبقه بندی به روش "Standard Deviation"',
+				GeometricalInterval: 'طبقه بندی به روش "Geometrical Interval"'
+			},
+			spatialFilters: {
                 entireMap: 'تمام محدوده نقشه (بدون فیتلر)',
                 currentExtent: 'محدوده ی کنونی نقشه',
                 identifiedFeature: 'Identified Feature',

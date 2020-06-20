@@ -76,10 +76,6 @@
                     <a href="includes/logout.php">خروج</a>
                 </div>
             </div>
-
-            <!-- <div id="logout" class="logout">
-            <a href="includes/logout.php">خروج</a>
-            </div> -->
         </div>
 
         <div class="headerLinks">

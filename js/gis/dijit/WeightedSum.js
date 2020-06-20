@@ -5,62 +5,24 @@ define([
     'dijit/_TemplatedMixin',
     'dijit/_WidgetsInTemplateMixin',
     'dojo/dom-construct',
-    "dojo/dom-style",
-    "dojo/query",
     'dojo/_base/lang',
-    'dojo/aspect',
-    'dojo/_base/array',
     'dojo/_base/array',
     'dojo/topic',
-    'dijit/form/FilteringSelect',
     'dojo/store/Memory',
     'esri/layers/ArcGISDynamicMapServiceLayer',
-    'esri/renderers/UniqueValueRenderer',
-    'esri/renderers/smartMapping',
-    'esri/layers/FeatureLayer',
-    'esri/symbols/SimpleMarkerSymbol',
-    'esri/symbols/SimpleLineSymbol',
-    'esri/symbols/SimpleFillSymbol',
-    "esri/renderers/ClassBreaksRenderer",
-    'esri/tasks/ClassBreaksDefinition',
-    "esri/tasks/StatisticDefinition",
-    'esri/tasks/UniqueValueDefinition',
-    'esri/tasks/AlgorithmicColorRamp',
-    'esri/tasks/GenerateRendererParameters',
-    'esri/tasks/GenerateRendererTask',
     'esri/tasks/Geoprocessor',
-    "esri/plugins/FeatureLayerStatistics",
-    "esri/styles/choropleth",
-    'esri/Color',
-    "esri/tasks/query",
-    "esri/tasks/QueryTask",
-    "esri/graphicsUtils",
-    "esri/geometry/Extent",
-    'dijit/form/Button',
-    'dojox/widget/ColorPicker',
-    'dijit/form/DropDownButton',
     'dijit/form/CheckBox',
     'dijit/form/TextBox',
-    'dijit/form/ValidationTextBox',
-    'dijit/form/HorizontalSlider',
-    'dijit/form/HorizontalRuleLabels',
     'dijit/registry',
-    'esri/request',
-    'esri/symbols/jsonUtils',
     "dojo/dom",
     "dojo/dom-construct",
-    "dojo/query",
-    "dojo/on",
     'dojo/text!./WeightedSum/templates/WeightedSum.html',
-    'dojo/i18n!./WeightedSum/nls/resource',
+    'dojo/i18n!./WeightedSum/nls/resource-en',
     'xstyle/css!./WeightedSum/css/WeightedSum.css'
 
-], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, domConstruct, domStyle, query, lang, aspect, arrayUtil,
-    array, topic, FilteringSelect, Memory, ArcGISDynamicMapServiceLayer, UniqueValueRenderer, smartMapping, FeatureLayer, SimpleMarkerSymbol,
-    SimpleLineSymbol, SimpleFillSymbol, ClassBreaksRenderer, ClassBreaksDefinition, StatisticDefinition, UniqueValueDefinition,
-    AlgorithmicColorRamp, GenerateRendererParameters, GenerateRendererTask, Geoprocessor, FeatureLayerStatistics, esriStylesChoropleth,
-    Color, Query, QueryTask, graphicsUtils, Extent, Button, ColorPicker, DropDownButton, CheckBox, TextBox, ValidationTextBox, HorizontalSlider,
-    HorizontalRuleLabels, registry, Request, symbolsJsonUtils, dom, domConstruct, query, on, WeightedSum, i18n) {
+], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, domConstruct,
+    lang, array, topic, Memory, ArcGISDynamicMapServiceLayer, Geoprocessor, CheckBox, 
+    TextBox, registry, dom, domConstruct, WeightedSum, i18n) {
         return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
             widgetsInTemplate: true,
             templateString: WeightedSum,
@@ -100,7 +62,7 @@ define([
 
                 if (renderingItems.length > 0) {
                     renderingItems.unshift({
-                        name: "شهر مورد نظر را انتخاب کنید",
+                        name: i18n.choseCity,
                         id: '***',
 
                     });
@@ -165,7 +127,7 @@ define([
 
 
                 // ** creating geoproccessor tool  **
-                var gp = new Geoprocessor("http://192.168.100.96:6080/arcgis/rest/services/WeightedSumServiceModel_v02/GPServer/WeightedSumServiceModel_02");
+                var gp = new Geoprocessor("http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel_v02/GPServer/WeightedSumServiceModel_02");
                 gp.setOutputSpatialReference({
                     wkid: this.map.spatialReference.wkid
                 });
@@ -201,7 +163,7 @@ define([
             },
             gpJobComplete: function (jobinfo) {
 
-                var outLayerUrl = 'http://192.168.100.96:6080/arcgis/rest/services/WeightedSumServiceModel_v02/MapServer/jobs/' + jobinfo.jobId;
+                var outLayerUrl = 'http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel_v02/MapServer/jobs/' + jobinfo.jobId;
                 var outputWSLayer = new ArcGISDynamicMapServiceLayer(outLayerUrl, {
                     "id": this.querySelectType.item.name,
                     "opacity": this.opacityControl.value,

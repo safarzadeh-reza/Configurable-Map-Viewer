@@ -58,7 +58,8 @@ define([
             'en': 'English',
             'es': 'Español',
             'fr': 'Français',
-            'pt': 'Português'
+            'pt': 'Português',
+            'fa': 'Persian'
         },
 
         locales: [
@@ -89,7 +90,8 @@ define([
             'en-us',
             'es-us',
             'es-uy',
-            'es-ve'
+            'es-ve',
+            'fa-IR'
         ],
 
         postCreate: function () {

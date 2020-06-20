@@ -53,7 +53,7 @@ define([
     'dojo/text!./Search/templates/Search.html',
 
     //i18n
-    'dojo/i18n!./Search/nls/Search',
+    'dojo/i18n!./Search/nls/Search-en',
 
     //template widgets
     'dijit/layout/LayoutContainer',

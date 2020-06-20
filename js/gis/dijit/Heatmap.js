@@ -27,7 +27,7 @@ define([
     'esri/Color',
 
     'dojo/text!./Heatmap/templates/Heatmap.html',
-    'dojo/i18n!./Heatmap/nls/Heatmap',
+    'dojo/i18n!./Heatmap/nls/Heatmap-en',
 
     'dijit/form/FilteringSelect',
     'dijit/form/Button',

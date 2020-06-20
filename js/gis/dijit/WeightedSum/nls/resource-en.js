@@ -15,10 +15,10 @@ define({
 		legendThematicPart2: '  بر حسب- '  ,     
 		fromColor:'شروع طیف رنگ',
 		toColor:'پایان طیف رنگ',
-		choseCity:'شهر مورد نظر را انتخاب کنید',
-		trancparency: 'شفافیت :',
-		weights: 'وزن لایه ها:',
-		disableLayers: 'فعال/ غیر فعال سازی تمام لایه ها'
+		choseCity:'Choose City',
+		trancparency: 'Trancparency :',
+		weights: 'Layers weights:',
+		disableLayers: 'Disable/Enable All Layers'
    }
 });
 
