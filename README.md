@@ -1,6 +1,7 @@
 # Configurable-Map-Viewer
 CMV is a mapping framework. CMV is a JavaScript web app and works with the [Esri JavaScript API](https://developers.arcgis.com/javascript/jsapi/3/) and [ArcGIS Server](https://www.esri.com/software/arcgis/arcgisserver).
 
+Preview: [Demo](https://drive.google.com/file/d/18ALv1oyStOe1_epvZWfAx0UHqbzBJBrY/view?usp=sharing)
 
 ![Screenshot](https://github.com/safarzadeh-reza/Configurable-Map-Viewer/blob/master/Mapviewer.jpg)
 
