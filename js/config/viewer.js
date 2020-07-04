@@ -717,6 +717,19 @@ define([
                 //nameSpace: 'app' // optional namespace
             }
         },
+        timesliderTool: {
+            include: true,
+            id: 'timesliderTool',
+            type: 'domNode',
+            srcNodeRef: 'timeButton',
+            path: 'gis/dijit/TimeSlider',
+            title: 'Time Slider',
+            options: {
+                map: true,
+                mapRightClickMenu: false,
+                mapClickMode: true
+            }
+        }
 
 
     }
@@ -734,7 +747,7 @@ define([
             center: [53.28418, 32.694866],
             zoom: 6,
             sliderStyle: 'small',
-            maxZoom: 19
+            maxZoom: 20
         },
 
         //webMapId: 'ef9c7fbda731474d98647bebb4b33c20',  // High Cost Mortgage
@@ -761,13 +774,15 @@ define([
                 content: '<div id="attributesContainer"></div>',
                 //open: false
             },
-            // 	top: {
-            // 		id: 'sidebarTop',
-            // 		placeAt: 'outer',
-            // 		collapsible: true,
-            // 		splitter: true,
-            // 		region: 'top'
-            // 	}
+            	// top: {
+            	// 	id: 'sidebarTop',
+            	// 	placeAt: 'outer',
+            	// 	collapsible: true,
+            	// 	splitter: true,
+                //     region: 'top',
+                //     // style: 'height:300px;display:block;',
+                //     content: '<div id="timeSlider"></div>'
+            	// }
         },
         // collapseButtonsPane: 'center', //center or outer
 
@@ -905,6 +920,69 @@ define([
                 }
             },
 
+            // {
+            //     type: 'feature',
+            //     url: baseURLIp + ':6080/arcgis/rest/services/Test_for_Timeslider/FeatureServer/0',
+            //     title: " خودپردازهای زمانمند پارسا",
+            //     options: {
+            //         id: 'parsaTimeAware',
+            //         opacity: 1.0,
+            //         visible: true,
+            //         outFields: ["*"],
+            //         // featureReduction: {
+            //         //     type: "cluster",
+            //         // }
+
+            //     },
+            //     identifyLayerInfos: {
+            //         layerIds: [0]
+            //     },
+            //     layerControlLayerInfos: {
+            //         expanded: false,
+            //         layerIds: [0],
+            //         layerGroup: "دستگاه های خودپرداز",
+            //         metadataUrl: false,
+            //     },
+            //     legendLayerInfos: {
+            //         exclude: false,
+            //         layerInfo: {
+            //             title: "خودپردازهای زمانمند پارسا",
+            //             //hideLayers: [1]
+            //         }
+            //     }
+            // },
+            
+            {
+                type: 'dynamic',
+                url: baseURLIp + ':6080/arcgis/rest/services/Test_for_Timeslider/MapServer',
+                title: "خودپردازهای زمانمند پارسا",
+                options: {
+                    id: 'parsaTimeAware',
+                    opacity: 1.0,
+                    visible: false,
+                    imageParameters: buildImageParameters({
+                        layerIds: [0],
+                        layerOption: 'show'
+                    })
+                    //outFields: ["name", "vicinity"],
+                    //mode: 1,
+                },
+                identifyLayerInfos: {
+                    layerIds: [0]
+                },
+                layerControlLayerInfos: {
+                    layerGroup: "خودپردازهای زمانمند پارسا",
+                    expanded: false,
+                    layerIds: [0],
+                    metadataUrl: false,
+                },
+                legendLayerInfos: {
+                    exclude: false,
+                    layerInfo: {
+                        title: "خودپردازهای زمانمند پارسا",
+                    }
+                }
+            },
             {
                 type: 'dynamic',
                 url: baseURLIp + ':6080/arcgis/rest/services/allIranAtms_new/MapServer',
@@ -1106,6 +1184,39 @@ define([
                     exclude: false,
                     layerInfo: {
                         title: "جمعیت",
+                        //hideLayers: [0]
+                    }
+                }
+            },
+            {
+                type: 'dynamic',
+                url: baseURLIp + ':6080/arcgis/rest/services/HeatMap_Slider/MapServer',
+                title: "HeatMap",
+                options: {
+                    id: 'HeatMap',
+                    opacity: 1.0,
+                    visible: false,
+                    imageParameters: buildImageParameters({
+                        layerIds: [3],
+                        layerOption: 'show'
+                    })
+                },
+                identifyLayerInfos: {
+                    layerIds: [3]
+                },
+                layerControlLayerInfos: {
+                    noLegend: false,
+                    noZoom: false,
+                    noTransparency: false,
+                    swipe: false,
+                    sublayers: true,
+                    expanded: false,
+                    layerIds: [3]
+                },
+                legendLayerInfos: {
+                    exclude: false,
+                    layerInfo: {
+                        title: "HeatMap",
                         //hideLayers: [0]
                     }
                 }

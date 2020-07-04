@@ -4,7 +4,7 @@ define({
     mapClickMode: true,
     useTabs: true,
     sidebarID: 'sidebarBottom',
-
+    tables: []
     /*
         any predefined tables to add to the tab container or possibly just one table
     */

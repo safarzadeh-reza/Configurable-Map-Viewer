@@ -16,6 +16,11 @@ define({
             id: 'خودپردازهای فعال پارسا',
             url: 'http://192.168.100.50:6080/arcgis/rest/services/ParsaAtms/FeatureServer/0',
             fields: ['Lag1MonthSucess','Lag1MonthFail','Lag1MonthTotal','Lag2MonthSucess','Lag2MonthFail','Lag2MonthTotal','Lag3MonthSucess','Lag3MonthFail','Lag3MonthTotal','total_success', 'total_fail', 'total', 'fail_percent','accuracy']
+        },
+        {
+            id: 'خودپردازهای زمانمند پارسا',
+            url: 'http://192.168.100.50:6080/arcgis/rest/services/Test_for_Timeslider/FeatureServer/0',
+            fields: ['Total_Sum']
         }
     ]
 

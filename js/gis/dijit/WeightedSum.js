@@ -127,11 +127,10 @@ define([
 
 
                 // ** creating geoproccessor tool  **
-                var gp = new Geoprocessor("http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel_v02/GPServer/WeightedSumServiceModel_02");
+                var gp = new Geoprocessor("http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel/GPServer/WeightedSumServiceModel_04");
                 gp.setOutputSpatialReference({
                     wkid: this.map.spatialReference.wkid
                 });
-                var outputWSLayer;
                 var gpParams = this.setupParameters();
                 gp.submitJob(gpParams, lang.hitch(this, 'gpJobComplete'), lang.hitch(this, 'gpJobFailed'));
 
@@ -139,7 +138,6 @@ define([
             setupParameters: function () {
 
                 var app = this;
-                var path;
                 var parameters = [];
 
                 array.forEach(this.querySelectType.item.layerIds, function (item) {
@@ -163,7 +161,7 @@ define([
             },
             gpJobComplete: function (jobinfo) {
 
-                var outLayerUrl = 'http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel_v02/MapServer/jobs/' + jobinfo.jobId;
+                var outLayerUrl = 'http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel/MapServer/jobs/' + jobinfo.jobId;
                 var outputWSLayer = new ArcGISDynamicMapServiceLayer(outLayerUrl, {
                     "id": this.querySelectType.item.name,
                     "opacity": this.opacityControl.value,
@@ -175,7 +173,6 @@ define([
                         outputWSLayer.setOpacity(value);
                     }
                 });
-
                 //  **  Handling Legend Options
                 this.removeGraphics()
                 //Add New Legend
@@ -184,7 +181,8 @@ define([
                 // Add new Layer
                 this.map.addLayer(outputWSLayer);
                 // Zoom to Layer Extent
-                this.map.setExtent(this.layerInfos[this.querySelectType.item.id].layer.fullExtent);
+                // this.map.setExtent(this.layerInfos[this.querySelectType.item.id].layer.fullExtent);
+                this.map.setExtent(this.layerInfos[0].layer.fullExtent);
                 // Add to Identify Task
                 this._addIdentifyTask(outputWSLayer)
 
