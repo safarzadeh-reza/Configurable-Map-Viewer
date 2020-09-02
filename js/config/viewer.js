@@ -6,7 +6,7 @@ define([
     'esri/tasks/GeometryService',
     'esri/layers/ImageParameters',
     'gis/plugins/Google',
-    'dojo/i18n!./nls/main-en',
+    'dojo/i18n!./nls/main',
     'dojo/topic',
     'dojo/sniff',
     "esri/SpatialReference",
@@ -723,7 +723,7 @@ define([
             type: 'domNode',
             srcNodeRef: 'timeButton',
             path: 'gis/dijit/TimeSlider',
-            title: 'Time Slider',
+            title: 'مدیریت زمان',
             options: {
                 map: true,
                 mapRightClickMenu: false,

@@ -51,7 +51,9 @@ define({
                 print: 'چاپ نقشه',
                 search: 'جستجو',
                 streetview: 'نمای خیابان گوگل',
-                renderer:'دسته بندی عوارض'
+                renderer:'دسته بندی عوارض',
+                weightedSum: 'تحلیل مطلوبیت',
+                heatmap: 'نقشه حرارتی'
             }
         }
     }/*,

@@ -38,7 +38,7 @@ define([
     'esri/request',
     'esri/symbols/jsonUtils',
     'dojo/text!./Renderer/templates/Renderer.html',
-    'dojo/i18n!./Renderer/nls/resource-en',
+    'dojo/i18n!./Renderer/nls/resource',
     'xstyle/css!./Renderer/css/Renderer.css'
 
 

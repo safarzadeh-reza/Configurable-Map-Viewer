@@ -17,7 +17,7 @@ define([
     "dojo/dom",
     "dojo/dom-construct",
     'dojo/text!./WeightedSum/templates/WeightedSum.html',
-    'dojo/i18n!./WeightedSum/nls/resource-en',
+    'dojo/i18n!./WeightedSum/nls/resource',
     'xstyle/css!./WeightedSum/css/WeightedSum.css'
 
 ], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, domConstruct,
