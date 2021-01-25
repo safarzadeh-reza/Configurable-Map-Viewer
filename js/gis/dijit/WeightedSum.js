@@ -11,6 +11,8 @@ define([
     'dojo/store/Memory',
     'esri/layers/ArcGISDynamicMapServiceLayer',
     'esri/tasks/Geoprocessor',
+    "esri/tasks/GeometryService",
+    "esri/tasks/ProjectParameters",
     'dijit/form/CheckBox',
     'dijit/form/TextBox',
     'dijit/registry',
@@ -21,7 +23,7 @@ define([
     'xstyle/css!./WeightedSum/css/WeightedSum.css'
 
 ], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, domConstruct,
-    lang, array, topic, Memory, ArcGISDynamicMapServiceLayer, Geoprocessor, CheckBox, 
+    lang, array, topic, Memory, ArcGISDynamicMapServiceLayer, Geoprocessor, GeometryService, ProjectParameters, CheckBox, 
     TextBox, registry, dom, domConstruct, WeightedSum, i18n) {
         return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
             widgetsInTemplate: true,
@@ -101,7 +103,7 @@ define([
             operateWeightedSum: function () {
 
                 // ** add waiting statuse in the side bar  **
-                var i = 10;
+                var i = 5;
                 var app = this;
                 array.forEach(this.querySelectType.item.layerIds, function (item) {
                     if (dijit.byId("check" + item).checked == true) {
@@ -127,7 +129,7 @@ define([
 
 
                 // ** creating geoproccessor tool  **
-                var gp = new Geoprocessor("http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel/GPServer/WeightedSumServiceModel_04");
+                var gp = new Geoprocessor("http://172.16.0.15:6080/arcgis/rest/services/WeightedSumServiceModel/GPServer/WeightedSumServiceModel_04");
                 gp.setOutputSpatialReference({
                     wkid: this.map.spatialReference.wkid
                 });
@@ -161,7 +163,7 @@ define([
             },
             gpJobComplete: function (jobinfo) {
 
-                var outLayerUrl = 'http://192.168.100.50:6080/arcgis/rest/services/WeightedSumServiceModel/MapServer/jobs/' + jobinfo.jobId;
+                var outLayerUrl = 'http://172.16.0.15:6080/arcgis/rest/services/WeightedSumServiceModel/MapServer/jobs/' + jobinfo.jobId;
                 var outputWSLayer = new ArcGISDynamicMapServiceLayer(outLayerUrl, {
                     "id": this.querySelectType.item.name,
                     "opacity": this.opacityControl.value,
@@ -179,10 +181,22 @@ define([
                 this._addLegend(outputWSLayer)
                 //  **  Handeling Map Options
                 // Add new Layer
-                this.map.addLayer(outputWSLayer);
+                //this.map.addLayer(outputWSLayer);
+
                 // Zoom to Layer Extent
-                // this.map.setExtent(this.layerInfos[this.querySelectType.item.id].layer.fullExtent);
-                this.map.setExtent(this.layerInfos[0].layer.fullExtent);
+                //var params = new ProjectParameters();
+                //params.geometries = [point];
+                // params.outSR = this.map.spatialReference;
+                //params.transformation = transformation;
+                //outputWSLayer.project(params);
+                var map = this.map
+                dojo.connect(outputWSLayer, 'onLoad', function() {
+                    map.setExtent(outputWSLayer.fullExtent);
+                  });
+
+
+                
+                // this.map.setExtent(this.layerInfos[0].layer.fullExtent);
                 // Add to Identify Task
                 this._addIdentifyTask(outputWSLayer)
 
@@ -190,7 +204,7 @@ define([
             removeGraphics: function () {
                 this.waitingStatusContainer.style.display = 'none';
                 var t = this;
-                var map = this.map
+                var map = this.map;
 
                 // ** Remove old Legend **
                 if (dijit.byId('legend_widget_legend')) {
@@ -259,7 +273,6 @@ define([
                 if (this.querySelectType.item.layerIds) {
 
                     var mapLayerId = this.querySelectType.item.id;
-
                     array.forEach(this.querySelectType.item.layerIds, function (item) {
                         var cheboxParams = { id: "check" + item, name: "checkBox" + item, checked: false, 'class': 'layerCheckBoxes' };
                         var checkbox = new CheckBox(cheboxParams, 'checkBox');
@@ -268,7 +281,6 @@ define([
                         checkbox.on("change", function () {
                             t._onCheckBoxChange();
                         });
-
                         // **making label for check boxes **
                         var checkLabel = domConstruct.create('label', {
                             'for': checkbox.name,

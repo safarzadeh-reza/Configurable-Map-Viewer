@@ -12,6 +12,6 @@ $getFromU = new User($pdo);
 $getFromT = new Tweet($pdo);
 $getFromF = new Follow($pdo);
 
-define("BASE_URL", "http://192.168.100.96:8080/cmv/")
+define("BASE_URL", "http://172.16.0.14:8080/cmv/")
 
 ?>

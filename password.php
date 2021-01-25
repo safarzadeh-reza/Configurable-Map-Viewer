@@ -44,7 +44,7 @@
 		<title>تغییر رمز عبور</title>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  		<script src="192.168.100.96:8080/cmv/js/jquery.min.js"></script>
+  		<script src="172.16.0.14:8080/cmv/js/jquery.min.js"></script>
         <link rel="stylesheet" href="css/style-complete.css"/>
     	</head>
 	<!--Helvetica Neue-->

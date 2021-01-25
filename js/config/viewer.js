@@ -36,15 +36,15 @@ define([
     //esriConfig.defaults.io.alwaysUseProxy = false;
 
     var baseURLIp;
-    if (window.location.hostname == "192.168.100.96") {
-        baseURLIp = "http://192.168.100.50";
+    if (window.location.hostname == "172.16.0.14") {
+        baseURLIp = "http://172.16.0.15";
     }
     else {
         baseURLIp = window.location.protocol + "//" + window.location.hostname;
     }
 
     esriConfig.defaults.io.corsEnabledServers.push("http://localhost:6080");
-    esriConfig.defaults.io.corsEnabledServers.push("http://192.168.100.50:6080");
+    esriConfig.defaults.io.corsEnabledServers.push("http://172.16.0.15:6080");
     this.user_group = this.document.getElementById("user_group").title;
 
     // add a proxy rule to force specific domain requests through proxy
@@ -502,7 +502,7 @@ define([
             position: 4,
             options: 'config/weightedsum'
         },
-        
+
         /* draw: {
              include: true,
              id: 'draw',
@@ -717,19 +717,19 @@ define([
                 //nameSpace: 'app' // optional namespace
             }
         },
-        timesliderTool: {
-            include: true,
-            id: 'timesliderTool',
-            type: 'domNode',
-            srcNodeRef: 'timeButton',
-            path: 'gis/dijit/TimeSlider',
-            title: 'مدیریت زمان',
-            options: {
-                map: true,
-                mapRightClickMenu: false,
-                mapClickMode: true
-            }
-        }
+        // timesliderTool: {
+        //     include: true,
+        //     id: 'timesliderTool',
+        //     type: 'domNode',
+        //     srcNodeRef: 'timeButton',
+        //     path: 'gis/dijit/TimeSlider',
+        //     title: 'مدیریت زمان',
+        //     options: {
+        //         map: true,
+        //         mapRightClickMenu: false,
+        //         mapClickMode: true
+        //     }
+        // }
 
 
     }
@@ -774,15 +774,15 @@ define([
                 content: '<div id="attributesContainer"></div>',
                 //open: false
             },
-            	// top: {
-            	// 	id: 'sidebarTop',
-            	// 	placeAt: 'outer',
-            	// 	collapsible: true,
-            	// 	splitter: true,
-                //     region: 'top',
-                //     // style: 'height:300px;display:block;',
-                //     content: '<div id="timeSlider"></div>'
-            	// }
+            // top: {
+            // 	id: 'sidebarTop',
+            // 	placeAt: 'outer',
+            // 	collapsible: true,
+            // 	splitter: true,
+            //     region: 'top',
+            //     // style: 'height:300px;display:block;',
+            //     content: '<div id="timeSlider"></div>'
+            // }
         },
         // collapseButtonsPane: 'center', //center or outer
 
@@ -869,6 +869,50 @@ define([
             */
             {
                 type: 'feature',
+                url: baseURLIp + ':6080/arcgis/rest/services/Nursing/FeatureServer/0',
+                title: "دسته بندی دستگاه های خودپرداز تهران",
+                options: {
+                    id: 'parsaATMs',
+                    opacity: 1.0,
+                    visible: true,
+                    outFields: ["*"],
+                    /*featureReduction: {
+                        type: "cluster",
+                    }*/
+
+                },
+                identifyLayerInfos: {
+                    layerIds: [0]
+                },
+
+                layerControlLayerInfos: {
+                    expanded: false,
+                    layerIds: [0],
+                    layerGroup: "دستگاه های خودپرداز",
+                    metadataUrl: true,
+                    menu: [
+                        {
+                            topic: 'buffer',
+                            iconClass: '',
+                            label: 'نمایش / عدم نمایش شعاع پوشش'
+                        },
+                        {
+                            topic: 'toggleClustering',
+                            iconClass: '',
+                            label: 'فعال/غیرفعال سازی خوشه بندی'
+                        },
+                    ],
+                },
+                legendLayerInfos: {
+                    exclude: false,
+                    layerInfo: {
+                        title: "دسته بندی دستگاه های خودپرداز تهران",
+                        //hideLayers: [1]
+                    }
+                }
+            },
+            {
+                type: 'feature',
                 url: baseURLIp + ':6080/arcgis/rest/services/ParsaAtms/FeatureServer/0',
                 title: "خودپردازهای پارسا",
                 options: {
@@ -951,38 +995,6 @@ define([
             //         }
             //     }
             // },
-            
-            {
-                type: 'dynamic',
-                url: baseURLIp + ':6080/arcgis/rest/services/Test_for_Timeslider/MapServer',
-                title: "خودپردازهای زمانمند پارسا",
-                options: {
-                    id: 'parsaTimeAware',
-                    opacity: 1.0,
-                    visible: false,
-                    imageParameters: buildImageParameters({
-                        layerIds: [0],
-                        layerOption: 'show'
-                    })
-                    //outFields: ["name", "vicinity"],
-                    //mode: 1,
-                },
-                identifyLayerInfos: {
-                    layerIds: [0]
-                },
-                layerControlLayerInfos: {
-                    layerGroup: "خودپردازهای زمانمند پارسا",
-                    expanded: false,
-                    layerIds: [0],
-                    metadataUrl: false,
-                },
-                legendLayerInfos: {
-                    exclude: false,
-                    layerInfo: {
-                        title: "خودپردازهای زمانمند پارسا",
-                    }
-                }
-            },
             {
                 type: 'dynamic',
                 url: baseURLIp + ':6080/arcgis/rest/services/allIranAtms_new/MapServer',
@@ -1104,14 +1116,16 @@ define([
                 options: {
                     id: 'ّallCities_Suit',
                     opacity: 1.0,
-                    visible: false,
+                    visible: true,
                     imageParameters: buildImageParameters({
-                        layerIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                        //layerIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                        layerIds: [27],
                         layerOption: 'show'
                     })
                 },
                 identifyLayerInfos: {
-                    layerIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                    // layerIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+                    layerIds: [27],
                 },
                 layerControlLayerInfos: {
                     expanded: false,
@@ -1188,42 +1202,42 @@ define([
                     }
                 }
             },
-            {
-                type: 'dynamic',
-                url: baseURLIp + ':6080/arcgis/rest/services/HeatMap_Slider/MapServer',
-                title: "HeatMap",
-                options: {
-                    id: 'HeatMap',
-                    opacity: 1.0,
-                    visible: false,
-                    imageParameters: buildImageParameters({
-                        layerIds: [3],
-                        layerOption: 'show'
-                    })
-                },
-                identifyLayerInfos: {
-                    layerIds: [3]
-                },
-                layerControlLayerInfos: {
-                    noLegend: false,
-                    noZoom: false,
-                    noTransparency: false,
-                    swipe: false,
-                    sublayers: true,
-                    expanded: false,
-                    layerIds: [3]
-                },
-                legendLayerInfos: {
-                    exclude: false,
-                    layerInfo: {
-                        title: "HeatMap",
-                        //hideLayers: [0]
-                    }
-                }
-            },
+            // {
+            //     type: 'dynamic',
+            //     url: baseURLIp + ':6080/arcgis/rest/services/HeatMap_Slider/MapServer',
+            //     title: "HeatMap",
+            //     options: {
+            //         id: 'HeatMap',
+            //         opacity: 1.0,
+            //         visible: false,
+            //         imageParameters: buildImageParameters({
+            //             layerIds: [3],
+            //             layerOption: 'show'
+            //         })
+            //     },
+            //     identifyLayerInfos: {
+            //         layerIds: [3]
+            //     },
+            //     layerControlLayerInfos: {
+            //         noLegend: false,
+            //         noZoom: false,
+            //         noTransparency: false,
+            //         swipe: false,
+            //         sublayers: true,
+            //         expanded: false,
+            //         layerIds: [3]
+            //     },
+            //     legendLayerInfos: {
+            //         exclude: false,
+            //         layerInfo: {
+            //             title: "HeatMap",
+            //             //hideLayers: [0]
+            //         }
+            //     }
+            // },
             {
                 type: "webtiled",
-                url: 'http://192.168.100.96:8080/basemaps/GSM/index.php?col=${col}&row=${row}&level=${level}',
+                url: 'http://172.16.0.14:8080/basemaps/GSM/index.php?col=${col}&row=${row}&level=${level}',
                 //url: "http://localhost:8080/basemaps/gmm/gm_${col}_${row}_${level}.png",
                 title: "نقشه پایه آفلاین",
                 options: {

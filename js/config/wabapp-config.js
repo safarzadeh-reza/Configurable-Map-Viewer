@@ -13,7 +13,7 @@ define({
             'proxyUrl': ''
         }]
     },
-    'geometryService': 'http://192.168.100.50:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer',
+    'geometryService': 'http://172.16.0.15:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer',
     'map': {
         'id': 'map',
         '2D': true,

@@ -72,13 +72,13 @@ define({
             {
                 element: '#renderer_parent .dijitTitlePaneTitle',
                 intro: '<h4>ابزار دسته بندی</h4>با استفاده از این ابزار می توانید لایه ها را بر اساس ویژگی های دلخواه دسته بندی کرده و نتایج تحلیل را به صورت گرافیکی مشاهده نمایید.<br/><br/>'+
-                '<img src="http://192.168.100.96:8080/cmv/images/classifying.png" style="width:300px;" /><br/>',
+                '<img src="http://172.16.0.14:8080/cmv/images/classifying.png" style="width:300px;" /><br/>',
                 //position: 'left'
             },
             {
                 element: '#search_parent .dijitTitlePaneTitle',
                 intro: '<h4>ابزار جست و جو</h4>با استفاده از این ابزار می توانید جست و جوی توصیفی و مکانی انجام دهید. جست و جوی توصیفی مانند نام، کد شعبه و ... و جست و جوی مکانی مانند جست و جوی خودپردازهای در فاصله ی معین از نقطه مورد نظر.<br/><br/>'+
-                '<img src="http://192.168.100.96:8080/cmv/images/search.png" style="width:300px;" /><br/>',
+                '<img src="http://172.16.0.14:8080/cmv/images/search.png" style="width:300px;" /><br/>',
                 //position: 'left'
             },
             // {
@@ -89,7 +89,7 @@ define({
             {
                 element: '#eMeasure_parent .dijitTitlePaneTitle',
                 intro: '<h4>اندازه گیری و ترسیم</h4>با استفاده از این ابزار می توانید اشکال هندسی را بر روی نقشه ترسیم کرده و مقادیر مورد نظر را اندازه گیری نمایید.<br/><br/>'+
-                '<img src="http://192.168.100.96:8080/cmv/images/measuring.png" style="width:300px;" /><br/>',
+                '<img src="http://172.16.0.14:8080/cmv/images/measuring.png" style="width:300px;" /><br/>',
                 //position: 'left'
             },
             // {

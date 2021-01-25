@@ -423,7 +423,7 @@ define([
                         centerPoint = graphic.getExtent().getCenter();
                 }
 
-                geometryService = new GeometryService("http://192.168.100.50:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer");
+                geometryService = new GeometryService("http://172.16.0.15:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer");
                 var distParams = new DistanceParameters();
                 distParams.distanceUnit = GeometryService.UNIT_METER;
                 distParams.geometry1 = centerPoint;

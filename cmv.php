@@ -23,8 +23,8 @@
     <link rel="shortcut icon" href="./favicon.png">
     <title>سامانه اطلاعات مکانی پارسا</title>
     
-    <link rel="stylesheet" type="text/css" href="http://192.168.100.96:8080/arcgis_js_api/library/3.22/3.22/esri/css/esri.css">
-    <link rel="stylesheet" href="http://192.168.100.96:8080/arcgis_js_api/library/3.22/3.22/dojox/widget/ColorPicker/ColorPicker.css" />
+    <link rel="stylesheet" type="text/css" href="http://172.16.0.14:8080/arcgis_js_api/library/3.22/3.22/esri/css/esri.css">
+    <link rel="stylesheet" href="http://172.16.0.14:8080/arcgis_js_api/library/3.22/3.22/dojox/widget/ColorPicker/ColorPicker.css" />
     <link rel="stylesheet" type="text/css" href="css/theme/flat/flat.css">
     <link rel="stylesheet" type="text/css" href="css/cmv-theme-overrides.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -95,7 +95,7 @@
     <!--[if lt IE 9]>
             <script type="text/javascript" src="js/es5-shim.min.js"></script>
         <![endif]-->
-    <script src="http://192.168.100.96:8080/arcgis_js_api/library/3.22/3.22/init.js"></script>
+    <script src="http://172.16.0.14:8080/arcgis_js_api/library/3.22/3.22/init.js"></script>
     <script src="js/config/app.js"></script>
 </body>
 
